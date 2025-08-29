@@ -1,0 +1,3 @@
+[submodule "weather-website"]
+	path = weather-website
+	url = https://github.com/mjdakiwas/weather-website
