@@ -8,6 +8,8 @@ console.log(__dirname);
 console.log(path.join(__dirname, "../public")); // manipulating path
 
 const app = express();
+const port = process.env.PORT || 3000;
+// env is an. object where we can access environment variables
 
 // define paths for Express config
 const publicDirectoryPath = path.join(__dirname, "../public");
@@ -189,7 +191,9 @@ app.get("*", (req, res) => {
 });
 // this .get() needs to come last after all other routes because when Express gets an incoming request, it starts to look for a match in the public folder so
 
-app.listen(3000, () => {
+// deployment sites provides us w/ a port value we have to use when our app is running on their server
+// it's a value that's provided to our application via an environment variable: a key-value pair set at the OS level
+app.listen(port, () => {
   console.log("Server is up on port 3000"); // NOTE: this message is never gonna display in the browser, but in the terminal
 });
 // '3000' is a common development port, however it's not the default port (for an HTTP based website, the default port is 80)
